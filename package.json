@@ -1,0 +1,23 @@
+{
+  "name": "hry-logger",
+  "version": "1.0.0",
+  "description": "Hairongyi logger module",
+  "main": "logger.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "log",
+    "logger"
+  ],
+  "author": "Ice",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ice-zjchen/hry-logger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ice-zjchen/hry-logger/issues"
+  },
+  "homepage": "https://github.com/ice-zjchen/hry-logger#readme"
+}
