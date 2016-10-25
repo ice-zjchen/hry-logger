@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "export NODE_ENV=production | node ./bin/www | ../node_modules/bunyan/bin/bunyan",
-    "debug": "export NODE_ENV=development && node ./bin/www"
+    "debug": "export NODE_ENV=development | node ./bin/www | ../node_modules/bunyan/bin/bunyan",
+    "start": "export NODE_ENV=production | node ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
