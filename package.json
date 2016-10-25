@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/ice-zjchen/hry-logger/issues"
   },
-  "homepage": "https://github.com/ice-zjchen/hry-logger#readme"
+  "homepage": "https://github.com/ice-zjchen/hry-logger#readme",
+  "dependencies": {
+    "bunyan": "^1.8.3"
+  }
 }

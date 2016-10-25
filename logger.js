@@ -1,4 +1,5 @@
 var bunyan = require('bunyan');
+var path = require('path');
 
 function Logger(config) {
   var config = config || {};
@@ -7,27 +8,33 @@ function Logger(config) {
   this.path = config.path || '';
   this.mode = config.mode || 'production';
 
+  this.defaultLogFileName = 'default.log';
+  this.traceLogFileName = 'trace.log';
+
+  var debugStream = { level: 'debug', stream: process.stdout };
+  
   var defaultLoggerStreams = [
-    { level: 'info', path: this.path + 'default.log' }
+    { level: 'info', path: path.join(this.path, this.defaultLogFileName) }
   ];
   var traceLoggerStreams = [
-    { level: 'info', path: this.path + 'trace.log' }
+    { level: 'info', path: path.join(this.path, this.traceLogFileName) }
   ];
   
-  var debugStream = { level: 'debug', stream: process.stdout };
   if (config.mode === 'development') {
-    defaultLoggerStreams.push(debugStream);
-    traceLoggerStreams.push(debugStream);
+    defaultLoggerStreams = [debugStream];
+    traceLoggerStreams = [debugStream];
   }
 
   var defaultLogger = bunyan.createLogger({
     name: this.name,
+    src: true,
     serializers: bunyan.stdSerializers,
     streams: defaultLoggerStreams
   });
 
   var traceLogger = bunyan.createLogger({
     name: this.name,
+    src: true,
     serializers: bunyan.stdSerializers,
     streams: traceLoggerStreams
   });
@@ -58,4 +65,4 @@ function Logger(config) {
 
 }
 
-exports = Logger;
+module.exports = Logger;
